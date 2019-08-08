@@ -11,35 +11,17 @@ class bookplaces extends Seeder
      */
     public function run()
     {
-//        DB::table('bookplaces')->insert([
-//            'is_busy' => false,
-//            'is_free' => false,
-//            'shelve' => 1
-//        ]);
-//        for ($k = 0; $k < 9; $k++) {
-//            DB::table('bookplaces')->insert([
-//                'is_busy' => false,
-//                'is_free' => true,
-//                'shelve' => 1
-//            ]);
-//        }
-//        for ($j = 2; $j < 15; $j++) {
-//            for ($i = 0; $i < 10; $i++) {
-//                DB::table('bookplaces')->insert([
-//                    'is_busy' => false,
-//                    'is_free' => true,
-//                    'shelve' => $j
-//                ]);
-//            }
-//        }
-        for ($i = 1; $i < 16; $i++) {
-            for ($j = 1; $j < 11; $j++) {
-                DB::table('bookplaces')->insert([
-                    'is_busy' => false,
-                    'is_free' => true,
-                    'shelve' => $j,
-                    'place_number' => $j
-                ]);
+        for ($i = 1; $i < 21; $i++) {
+            for ($j = 1; $j < 16; $j++) {
+                for ($k = 1; $k < 11; $k++) {
+                    DB::table('bookplaces')->insert([
+                        'is_busy' => false,
+                        'is_free' => true,
+                        'case' => $i,
+                        'shelve' => $j,
+                        'place' => $k
+                    ]);
+                }
             }
         }
 

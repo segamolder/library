@@ -17,11 +17,10 @@ class Bookplaces extends Migration
             $table->increments('id');
             $table->boolean('is_busy');
             $table->boolean('is_free');
-            $table->integer('shelve')->unsigned();
-            $table->integer('place_number');
+            $table->integer('case');
+            $table->integer('shelve');
+            $table->integer('place');
             $table->timestamps();
-
-            $table->foreign('shelve')->references('id')->on('bookshelves')->onDelete('cascade');
         });
     }
 

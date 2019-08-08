@@ -15,6 +15,7 @@ class book_copy extends Seeder
             'author' => 1,
             'title' => 'Порог',
             'publishing_year' => '2019-06-24',
+            'place_id' => 1
         ]);
     }
 }

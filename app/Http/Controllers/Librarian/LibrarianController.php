@@ -11,6 +11,6 @@ class AccountController extends Controller
 {
     public function index()
     {
-        return view('librarian/home');
+        return view('librarian/addauthor');
     }
 }

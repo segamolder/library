@@ -8,7 +8,7 @@
 namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-class Admin
+class Librarian
 {
     /**
      * Handle an incoming request.

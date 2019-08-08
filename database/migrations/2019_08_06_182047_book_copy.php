@@ -18,9 +18,11 @@ class BookCopy extends Migration
             $table->integer('author')->unsigned();
             $table->text('title');
             $table->date('publishing_year');
+            $table->integer('place_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('author')->references('id')->on('author')->onDelete('cascade');
+            $table->foreign('place_id')->references('id')->on('bookplaces');
         });
     }
 

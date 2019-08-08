@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/books/getall', 'Books@getAllBooks')->name('getAllBooks');
+Route::get('/librarian/get/author', 'AuthorController@getAuthors')->name('getAuthors');
+Route::get('/librarian/get/category', 'CategoryController@getCategories')->name('getCategories');
+
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -28,7 +31,26 @@ Route::group(['middleware' => 'auth'], function () {
 
     //admin
     Route::group(['middleware' => 'librarian'], function () {
+        Route::get('/librarian/addauthor', function () {
+           return view('librarian/addauthor');
+        });
 
+        Route::get('/librarian/addcategory', function () {
+            return view('librarian/addcategory');
+        });
+
+        Route::get('/librarian/addbook', function () {
+            return view('librarian/addbook');
+        });
+
+        Route::get('/librarian/books', function () {
+            return view('librarian/books');
+        });
+
+        Route::post('/librarian/set/author', 'AuthorController@setAuthor');
+        Route::post('/librarian/set/category', 'CategoryController@setCategory');
+
+        Route::post('/librarian/set/book', 'Books@addBook');
     });
 });
 
