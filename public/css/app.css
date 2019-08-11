@@ -7638,4 +7638,14 @@ button.close {
   }
 }
 
+.img_register {
+  background-image: url("/images/info_1.png");
+  height: 50vh;
+  display: flex;
+  align-self: center;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /*# sourceMappingURL=app.css.map */

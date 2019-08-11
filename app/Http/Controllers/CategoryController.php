@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Author;
+use App\Models\Category;
 use App\Models\CategoryName;
 use Illuminate\Http\Request;
 
@@ -27,6 +28,12 @@ class CategoryController extends Controller
         $newCategory -> created_at = date('Y-m-d H:i:s');
         $newCategory -> updated_at = date('Y-m-d H:i:s');
         $newCategory -> save();
+        return "Ok";
+    }
+
+    public function deleteCategory(Request $request) {
+        $categoryData = json_decode($request->getContent(), true);
+        CategoryName::find($categoryData["id"]) -> delete();
         return "Ok";
     }
 }

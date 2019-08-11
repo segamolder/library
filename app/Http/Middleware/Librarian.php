@@ -20,7 +20,7 @@ class Librarian
     public function handle($request, Closure $next)
     {
         if(Auth::user()->is_librarian == 0) {
-            return redirect(route('librarian/home'));
+            return redirect(route('home'));
         }
         return $next($request);
     }

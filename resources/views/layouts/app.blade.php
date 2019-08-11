@@ -8,12 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Library') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/d33c455dea.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -59,11 +60,22 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @if (Auth::user()->is_librarian)
+                                    <li><a href="{{route('addauthor')}}">Добавить автора</a></li>
+                                    <li><a href="{{route('addcategory')}}">Добавить категорию</a></li>
+                                    <li><a href="{{route('books')}}">Список книг</a></li>
+                                    <li><a href="{{route('students')}}">Список учеников</a></li>
+                                    <li><a href="{{route('librarianrequestedbooks')}}">Список запрошенных книг</a></li>
+                                    <li><a href="{{route('libraryinfo')}}">Справочная информация</a></li>
+                                        @else
+                                        <li><a href="{{route('home')}}">Список книг</a></li>
+                                        <li><a href="{{route('requestedbooks')}}">Запрошенные книги</a></li>
+                                    @endif
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Выйти
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

@@ -7,6 +7,12 @@ import addauthor from "./components/addauthor.vue";
 import addbook from "./components/addbook.vue";
 import addcategory from "./components/addcategory.vue";
 import books from "./components/books.vue";
+import addstudent from "./components/addstudent.vue";
+import libraryinfo from "./components/libraryinfo.vue";
+import students from "./components/students.vue";
+import requestedbooks from "./components/requestedbooks.vue";
+import librarianrequestedbooks from "./components/librarianrequestedbooks.vue";
+
 
 require('./bootstrap');
 window.Vue = require('vue');
@@ -21,6 +27,11 @@ Vue.component('addauthor', addauthor);
 Vue.component('addbook', addbook);
 Vue.component('addcategory', addcategory);
 Vue.component('books', books);
+Vue.component('addstudent', addstudent);
+Vue.component('libraryinfo', libraryinfo);
+Vue.component('students', students);
+Vue.component('requestedbooks', requestedbooks);
+Vue.component('librarianrequestedbooks', librarianrequestedbooks);
 
 import VueTheMask from 'vue-the-mask'
 Vue.use(VueTheMask)

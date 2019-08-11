@@ -8,7 +8,9 @@
         <hr>
         <h2>Список категорий</h2>
         <ul class="list-group">
-            <li v-for="category in categories" class="list-group-item">{{category.name}}</li>
+            <li v-for="category in categories" class="list-group-item">{{category.name}}
+                <button @click="deleteCategory(category.id)" class="btn btn-danger badge">Удалить</button>
+            </li>
         </ul>
     </div>
 </template>
@@ -26,6 +28,19 @@
         },
         computed: {},
         methods: {
+            deleteCategory(id) {
+                let data = {
+                    id: id
+                };
+                axios.post('/librarian/delete/category', data, {})
+                    .then(response => {
+                        console.log(response);
+                        this.getCategories();
+                    })
+                    .catch(error => {
+                        console.log(error.response)
+                    });
+            },
             setCategory() {
                 let data = {
                     new_category: this.new_category

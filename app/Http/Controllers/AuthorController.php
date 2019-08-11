@@ -27,4 +27,10 @@ class AuthorController extends Controller
         $newAuthor -> save();
         return "Ok";
     }
+
+    public function deleteAuthor(Request $request) {
+        $authorData = json_decode($request->getContent(), true);
+        Author::find($authorData["id"]) -> delete();
+        return "Ok";
+    }
 }
